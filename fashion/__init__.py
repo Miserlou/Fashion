@@ -1,28 +1,27 @@
 import importlib
-import http.client
+import requests
 
-FASHION_GATEWAY_URL = '127.0.0.1'
-FASHION_GATEWAY_PORT = '8080'
-FASHION_TIMEOUT_SECONDS = 900
+GATEWAY_URL = 'http://127.0.0.1'
+GATEWAY_PORT = 8080
+TIMEOUT_SECONDS = 900
 
 class Fashion:
-
-    def hello(self):
-        print('hello')
+    """ """
 
     @staticmethod
-    def trigger(name):
-        connection = http.client.HTTPSConnection("api.bitbucket.org", timeout=FASHION_TIMEOUT_SECONDS)
-        connection.request('GET', '/2.0/repositories')
-        response = connection.getresponse()
-        content = response.read().decode('utf-8')
-        print(content[:100], '...')
-        print(name)
+    def trigger(name, body=None):
+        """ """
+
+        fashion_endpoint = GATEWAY_URL + ":" + str(GATEWAY_PORT) + f"/function/{name}"
+        response = requests.post(fashion_endpoint, data=body, timeout=TIMEOUT_SECONDS)
+        return response.text
 
     @staticmethod
-    def create_named_function(name):
-        #return lambda: print("Hello, " + name + "!")
-        return lambda: Fashion.trigger(name)
+    def create_named_function(name, body=None):
+        """ """
+        def named_trigger(body):
+            return Fashion.trigger(name, body)
+        return named_trigger
 
 ##
 # We use PEP562 to create our named functions at import time.

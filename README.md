@@ -3,13 +3,19 @@
 
 _Work in progress!_
 
-**Fashion** is a library for using OpenFaaS functions in a Pythonic way.
+**Fashion** is a library for using [OpenFaaS](https://openfaas.com) functions in a Pythonic way.
 
-For instance, let's imagine that we've installed the `left_pad` function from the OpenFaaS function store. To call it from our application, we can simply:
+For instance, let's imagine that we've installed the `figlet` function from the OpenFaaS function store. To call it from our application, we can simply:
 
 ```python
-from fashion import left_pad
-left_pad("Hello!", 6) # "      Hello!"
+from fashion import figlet
+figlet("Hello, world!")
+# _   _      _ _                             _     _ _
+#| | | | ___| | | ___    __      _____  _ __| | __| | |
+#| |_| |/ _ \ | |/ _ \   \ \ /\ / / _ \| '__| |/ _` | |
+#|  _  |  __/ | | (_) |   \ V  V / (_) | |  | | (_| |_|
+#|_| |_|\___|_|_|\___( )   \_/\_/ \___/|_|  |_|\__,_(_)
+#                    |/
 ```
 
 Fashion doesn't need any prior knowledge of the OpenFaas function, you can simply call it as if it were a local function!
@@ -67,6 +73,12 @@ Similarly, you can use OpenFaaS functions asyncronously.
 
 ## Related Projects
  * [Zappa](https://github.com/Miserlou/Zappa) - Python's Serverless Framework for AWS Lambda
+
+## TODO
+  * Tests
+  * Async
+  * Auth settings
+  * Turn left__pad into left-pad invocation
 
 ## License
 
