@@ -79,7 +79,7 @@ or the old fashioned way:
 
 ```python
 import fashion
-fashion.trigger("leftpad", "Hello!") # "6a3ae7fb-a8ee-4988-b7de-e3b81d1aed65"
+fashion.async_trigger("leftpad", "Hello!") # "6a3ae7fb-a8ee-4988-b7de-e3b81d1aed65"
 ```
 
 ### Other OpenFaaS utilities
