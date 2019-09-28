@@ -16,7 +16,7 @@ Fashion doesn't need any prior knowledge of the OpenFaas function, you can simpl
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**
+## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
