@@ -1,5 +1,7 @@
 # Fashion [![Python 3](https://img.shields.io/badge/Python-3-brightgreen.svg)](https://github.com/Miserlou/Fashion)
-## aka, python-openfaas
+### aka, python-openfaas
+
+_Work in progress!_
 
 **Fashion** is a library for using OpenFaaS functions in a Pythonic way.
 
