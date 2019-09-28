@@ -24,6 +24,14 @@ class Fashion:
         return named_trigger
 
 ##
+# Convenience methods
+##
+
+def trigger(name, body):
+    f = Fashion()
+    return f.trigger(name, body)
+
+##
 # We use PEP562 to create our named functions at import time.
 # We have to do this after the Fashion class is created, and we can't do an import,
 # which is why the Fashion class lives in this file.

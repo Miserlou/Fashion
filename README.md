@@ -9,12 +9,12 @@ For instance, let's imagine that we've installed the `figlet` function from the 
 
 ```python
 from fashion import figlet
-figlet("Hello, world!")
-# _   _      _ _                             _     _ _
-#| | | | ___| | | ___    __      _____  _ __| | __| | |
-#| |_| |/ _ \ | |/ _ \   \ \ /\ / / _ \| '__| |/ _` | |
-#|  _  |  __/ | | (_) |   \ V  V / (_) | |  | | (_| |_|
-#|_| |_|\___|_|_|\___( )   \_/\_/ \___/|_|  |_|\__,_(_)
+hi = figlet("Hello, world!")
+#  _   _      _ _                             _     _ _
+# | | | | ___| | | ___    __      _____  _ __| | __| | |
+# | |_| |/ _ \ | |/ _ \   \ \ /\ / / _ \| '__| |/ _` | |
+# |  _  |  __/ | | (_) |   \ V  V / (_) | |  | | (_| |_|
+# |_| |_|\___|_|_|\___( )   \_/\_/ \___/|_|  |_|\__,_(_)
 #                    |/
 ```
 
@@ -50,15 +50,15 @@ Fashion is very easy to use, just import your OpenFaaS function as if it were na
 
 For instance:
 ```python
-from fashion import left_pad
-left_pad(input="Hello!", 6) # "      Hello!"
+from fashion import leftpad
+leftpad("Hello!") # "      Hello!"
 ```
 
 Alternately, you can use Fashion's `trigger` function directly, like so:
 
 ```python
 import fashion
-fashion.trigger("left_pad", value="Hello!", amount=6) "      Hello!"
+fashion.trigger("leftpad", "Hello!") "      Hello!"
 ```
 
 ### Async
@@ -77,7 +77,7 @@ Similarly, you can use OpenFaaS functions asyncronously.
 ## TODO
   * Tests
   * Async
-  * Auth settings
+  * Auth/HMAC settings
   * Turn left__pad into left-pad invocation
 
 ## License
