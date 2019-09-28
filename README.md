@@ -33,8 +33,9 @@ Fashion doesn't need any prior knowledge of the OpenFaas function, you can simpl
   - [Ordinary Usage](#ordinary-usage)
   - [Async](#async)
   - [Other OpenFaaS utilities](#other-openfaas-utilities)
-  - [Advanced Usage](#advanced-usage)
+  - [Settings](#settings)
 - [Related Projects](#related-projects)
+- [TODO](#todo)
 - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -87,13 +88,12 @@ fashion.trigger("leftpad", "Hello!") # "6a3ae7fb-a8ee-4988-b7de-e3b81d1aed65"
 ### Settings
 You can configure your endpoints and other variables like so:
 
-```
+```python
 import fashion
 
 fashion.GATEWAY_URL = "http://internal.network.location"
 fashion.GATEWAY_PORT = 8081
 fashion.TIMEOUT_SECONDS = 30
-
 ```
 
 ## Related Projects
