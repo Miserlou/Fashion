@@ -22,7 +22,7 @@ hi = figlet("Hello, world!")
 #                    |/
 ```
 
-Fashion doesn't need any prior knowledge of the OpenFaas function, you can simply call it as if it were a local function!
+Fashion doesn't need any prior knowledge of the OpenFaas function, you can simply call it as if it were a local function!. `figlet` will run inside of its own Docker container somewhere in your OpenFaaS/Kubernetes cluster, but it'll look like a local function in your application's code! Cool!
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
