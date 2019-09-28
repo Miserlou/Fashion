@@ -14,14 +14,30 @@ class Fashion:
 
         fashion_endpoint = GATEWAY_URL + ":" + str(GATEWAY_PORT) + f"/function/{name}"
         response = requests.post(fashion_endpoint, data=body, timeout=TIMEOUT_SECONDS)
+        response.raise_for_status()
         return response.text
+
+    @staticmethod
+    def async_trigger(name, body=None):
+        """ """
+
+        fashion_endpoint = GATEWAY_URL + ":" + str(GATEWAY_PORT) + f"/async-function/{name}"
+        response = requests.post(fashion_endpoint, data=body, timeout=TIMEOUT_SECONDS)
+        response.raise_for_status()
+        return response.headers['X-Call-Id']
 
     @staticmethod
     def create_named_function(name, body=None):
         """ """
-        def named_trigger(body):
-            return Fashion.trigger(name, body)
-        return named_trigger
+
+        if "async_" in name:
+            def async_named_trigger(body):
+                return Fashion.async_trigger(name.replace('async_', ''), body)
+            return async_named_trigger
+        else:
+            def named_trigger(body):
+                return Fashion.trigger(name, body)
+            return named_trigger
 
 ##
 # Convenience methods
@@ -30,6 +46,10 @@ class Fashion:
 def trigger(name, body):
     f = Fashion()
     return f.trigger(name, body)
+
+def async_trigger(name, body):
+    f = Fashion()
+    return f.async_trigger(name, body)
 
 ##
 # We use PEP562 to create our named functions at import time.

@@ -62,18 +62,39 @@ Alternately, you can use Fashion's `trigger` function directly, like so:
 
 ```python
 import fashion
-fashion.trigger("leftpad", "Hello!") "      Hello!"
+fashion.trigger("leftpad", "Hello!") #"      Hello!"
 ```
 
 ### Async
-Similarly, you can use OpenFaaS functions asyncronously.
-`XXX TODO XXX`
+_(Still working on the interface for this, hang on a bit!)_
+Similarly, you can use OpenFaaS functions asyncronously. To invoke an async function, import it with the prefix `async_` like so:
+
+```python
+from fashion import async_leftpad
+async_leftpad("Hello!") # "6a3ae7fb-a8ee-4988-b7de-e3b81d1aed65"
+```
+
+or the old fashioned way:
+
+```python
+import fashion
+fashion.trigger("leftpad", "Hello!") # "6a3ae7fb-a8ee-4988-b7de-e3b81d1aed65"
+```
 
 ### Other OpenFaaS utilities
 `XXX TODO XXX`
 
-### Advanced Usage
-`XXX TODO XXX`
+### Settings
+You can configure your endpoints and other variables like so:
+
+```
+import fashion
+
+fashion.GATEWAY_URL = "http://internal.network.location"
+fashion.GATEWAY_PORT = 8081
+fashion.TIMEOUT_SECONDS = 30
+
+```
 
 ## Related Projects
  * [Zappa](https://github.com/Miserlou/Zappa) - Python's Serverless Framework for AWS Lambda
