@@ -3,9 +3,9 @@
 
 **Fashion** is a library for using OpenFaaS functions in a Pythonic way.
 
-For instance, let's imagine that we've installed the "left_pad" function from the OpenFaaS function store. To call it from our application, we can simply:
+For instance, let's imagine that we've installed the `left_pad` function from the OpenFaaS function store. To call it from our application, we can simply:
 
-```
+```python
 from fashion import left_pad
 left_pad("Hello!", 6) # "      Hello!"
 ```
@@ -14,7 +14,7 @@ Fashion doesn't need any prior knowledge of the OpenFaas function, you can simpl
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+**Table of Contents**
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -41,14 +41,14 @@ pip install fashion
 Fashion is very easy to use, just import your OpenFaaS function as if it were native!
 
 For instance:
-```
+```python
 from fashion import left_pad
 left_pad(input="Hello!", 6) # "      Hello!"
 ```
 
 Alternately, you can use Fashion's `trigger` function directly, like so:
 
-```
+```python
 import Fashion
 fashion.trigger("left_pad", value="Hello!", amount=6) "      Hello!"
 ```
