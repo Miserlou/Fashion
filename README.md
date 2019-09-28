@@ -7,7 +7,7 @@
 
 _Work in progress!_
 
-**Fashion** is a library for using [OpenFaaS](https://openfaas.com) functions in a Pythonic way.
+**Fashion** is a library for using [OpenFaaS](https://openfaas.com) functions in a Pythonic way. Fashion functions run inside their own Docker containers in your cluster, but act like local functions in your application's code! **Cool!**
 
 For instance, let's imagine that we've installed the `figlet` function from the OpenFaaS function store. To call it from our application, we can simply:
 
@@ -22,7 +22,8 @@ hi = figlet("Hello, world!")
 #                    |/
 ```
 
-Fashion doesn't need any prior knowledge of the OpenFaas function, you can simply call it as if it were a local function!. `figlet` will run inside of its own Docker container somewhere in your OpenFaaS/Kubernetes cluster, but it'll look like a local function in your application's code! Cool!
+Fashion doesn't need any prior knowledge of the OpenFaas function, you can simply call it as if it were a local function!
+
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
