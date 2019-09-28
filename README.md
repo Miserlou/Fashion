@@ -49,7 +49,7 @@ left_pad(input="Hello!", 6) # "      Hello!"
 Alternately, you can use Fashion's `trigger` function directly, like so:
 
 ```python
-import Fashion
+import fashion
 fashion.trigger("left_pad", value="Hello!", amount=6) "      Hello!"
 ```
 
