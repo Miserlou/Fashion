@@ -1,4 +1,6 @@
-<img src="https://i.imgur.com/DpAUHQv.png" alt="Fashion: python openfaas" />
+<p align="center">
+    <img src="https://i.imgur.com/DpAUHQv.png" alt="Fashion: python openfaas" />
+</p>
 
 # Fashion [![Python 3](https://img.shields.io/badge/Python-3-brightgreen.svg)](https://github.com/Miserlou/Fashion)
 ### aka, python-openfaas
