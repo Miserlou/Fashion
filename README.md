@@ -67,6 +67,17 @@ Alternately, you can use Fashion's `trigger` function directly, like so:
 import fashion
 fashion.trigger("leftpad", "Hello!") #"      Hello!"
 ```
+Functions can be chained together without friction:
+
+```python
+from fashion import leftpad, figlet
+figlet(leftpad("Hello!"))
+#  _                _   _      _ _       _ _
+# ( )              | | | | ___| | | ___ | ( )
+# |/               | |_| |/ _ \ | |/ _ \| |/
+#                  |  _  |  __/ | | (_) |_|
+#                  |_| |_|\___|_|_|\___/(_)
+```
 
 ### Async
 _(Still working on the interface for this, hang on a bit!)_

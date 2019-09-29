@@ -50,12 +50,10 @@ class Fashion:
 ##
 
 def trigger(name, body):
-    f = Fashion()
-    return f.trigger(name, body)
+    return Fashion().trigger(name, body)
 
 def async_trigger(name, body):
-    f = Fashion()
-    return f.async_trigger(name, body)
+    return Fashion().async_trigger(name, body)
 
 ##
 # We use PEP562 to create our named functions at import time.
