@@ -112,7 +112,12 @@ async_leftpad("Hello", callback_function="figlet")
 ```
 
 ### Other OpenFaaS utilities
-`XXX TODO XXX`
+You can use Fashion to progromatically get information about all your OpenFaaS functions like so:
+
+```python
+import fashion
+fashion.system_functions()
+```
 
 ### Settings
 You can configure your endpoints and other variables like so:

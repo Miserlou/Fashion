@@ -45,6 +45,23 @@ class Fashion:
                 return Fashion.trigger(name, body)
             return named_trigger
 
+    # OpenFaaS utilities
+    @staticmethod
+    def system_functions():
+        """ """
+        fashion_endpoint = GATEWAY_URL + ":" + str(GATEWAY_PORT) + f"/system/functions"
+        response = requests.get(fashion_endpoint, timeout=TIMEOUT_SECONDS)
+        response.raise_for_status()
+        return response.json()
+
+    @staticmethod
+    def system_alert(data):
+        """ XXX UNTESTED XXX """
+        fashion_endpoint = GATEWAY_URL + ":" + str(GATEWAY_PORT) + f"/system/alert"
+        response = requests.post(fashion_endpoint, data=data, timeout=TIMEOUT_SECONDS)
+        response.raise_for_status()
+        return response.json()
+
 ##
 # Convenience methods
 ##
@@ -54,6 +71,12 @@ def trigger(name, body):
 
 def async_trigger(name, body):
     return Fashion().async_trigger(name, body)
+
+def system_functions():
+    return Fashion().system_functions()
+
+def system_alert():
+    return Fashion().system_alert()
 
 ##
 # We use PEP562 to create our named functions at import time.
