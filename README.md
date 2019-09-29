@@ -90,14 +90,14 @@ Async functions can have their results sent to callback URLs and other OpenFaaS 
 
 ```python
 from fashion import async_leftpad
-async_leftpad("Hello", callback_url="https://postb.in/b/1269724059086-0568930923473"))
+async_leftpad("Hello", callback_url="https://postb.in/b/1269724059086-0568930923473")
 ```
 
 or to another OpenFaaS function like this:
 
 ```python
 from fashion import async_leftpad
-async_leftpad("Hello", callback_function="figlet"))
+async_leftpad("Hello", callback_function="figlet")
 ```
 
 ### Other OpenFaaS utilities
