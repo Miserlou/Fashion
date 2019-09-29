@@ -33,6 +33,7 @@ Fashion doesn't need any prior knowledge of the OpenFaas function, you can simpl
 - [Usage](#usage)
   - [Ordinary Usage](#ordinary-usage)
   - [Async](#async)
+    - [Callbacks](#callbacks)
   - [Other OpenFaaS utilities](#other-openfaas-utilities)
   - [Settings](#settings)
 - [Related Projects](#related-projects)
@@ -81,6 +82,22 @@ or the old fashioned way:
 ```python
 import fashion
 fashion.async_trigger("leftpad", "Hello!") # "6a3ae7fb-a8ee-4988-b7de-e3b81d1aed65"
+```
+
+#### Callbacks
+
+Async functions can have their results sent to callback URLs and other OpenFaaS functions. For example, you can send to a pastebin like this:
+
+```python
+from fashion import async_leftpad
+async_leftpad("Hello", callback_url="https://postb.in/b/1269724059086-0568930923473"))
+```
+
+or to another OpenFaaS function like this:
+
+```python
+from fashion import async_leftpad
+async_leftpad("Hello", callback_function="figlet"))
 ```
 
 ### Other OpenFaaS utilities

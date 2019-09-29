@@ -18,11 +18,17 @@ class Fashion:
         return response.text
 
     @staticmethod
-    def async_trigger(name, body=None):
+    def async_trigger(name, body=None, callback_url=None, callback_function=None):
         """ """
 
+        headers = {}
+        if callback_url:
+            headers['X-Callback-Url'] = callback_url
+        if callback_function:
+            headers['X-Callback-Url'] = GATEWAY_URL + ":" + str(GATEWAY_PORT) + f"/function/{name}"
+
         fashion_endpoint = GATEWAY_URL + ":" + str(GATEWAY_PORT) + f"/async-function/{name}"
-        response = requests.post(fashion_endpoint, data=body, timeout=TIMEOUT_SECONDS)
+        response = requests.post(fashion_endpoint, data=body, timeout=TIMEOUT_SECONDS, headers=headers)
         response.raise_for_status()
         return response.headers['X-Call-Id']
 
@@ -31,8 +37,8 @@ class Fashion:
         """ """
 
         if "async_" in name:
-            def async_named_trigger(body):
-                return Fashion.async_trigger(name.replace('async_', ''), body)
+            def async_named_trigger(body, callback_url=None, callback_function=None):
+                return Fashion.async_trigger(name.replace('async_', ''), body, callback_url, callback_function)
             return async_named_trigger
         else:
             def named_trigger(body):
