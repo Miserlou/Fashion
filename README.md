@@ -24,6 +24,28 @@ hi = figlet("Hello, world!")
 
 Fashion doesn't need any prior knowledge of the OpenFaas function, you can simply call it as if it were a local function!
 
+An interesting use of this is limiting functions to instance types. For instance, if this is included in an `update_model` function definition:
+
+```yaml
+#update_model.yml
+  [..]
+   constraints:
+     - "node.labels.instance_type == gpu"
+```
+
+Then you can write code which is automatically cost-optimized when it executes:
+
+```python
+# Runs on expensive GPU instance
+from fashion import update_model
+
+# Runs on cheap CPU instance
+from fashion import send_result_email
+
+result = update_model(input)
+send_email(result)
+# Email sent!
+```
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
