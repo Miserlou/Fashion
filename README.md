@@ -24,29 +24,6 @@ hi = figlet("Hello, world!")
 
 Fashion doesn't need any prior knowledge of the OpenFaas function, you can simply call it as if it were a local function!
 
-An interesting use of this is limiting functions to instance types. For instance, if this is included in an `update_model` function definition:
-
-```yaml
-#update_model.yml
-  [..]
-   constraints:
-     - "node.labels.instance_type == gpu"
-```
-
-Then you can write code which is automatically cost-optimized when it executes:
-
-```python
-# Runs on expensive GPU instance
-from fashion import update_model
-
-# Runs on cheap CPU instance
-from fashion import send_result_email
-
-result = update_model(input)
-send_email(result)
-# Email sent!
-```
-
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 ## Table of Contents
@@ -56,6 +33,7 @@ send_email(result)
   - [Ordinary Usage](#ordinary-usage)
   - [Async](#async)
     - [Callbacks](#callbacks)
+    - [Instance Type Limiting / Automatic Cost Optimization](#instance-type-limiting--automatic-cost-optimization)
   - [Other OpenFaaS utilities](#other-openfaas-utilities)
   - [Settings](#settings)
 - [Related Projects](#related-projects)
@@ -131,6 +109,31 @@ or to another OpenFaaS function like this:
 ```python
 from fashion import async_leftpad
 async_leftpad("Hello", callback_function="figlet")
+```
+
+#### Instance Type Limiting / Automatic Cost Optimization
+
+An interesting use of this is limiting execution of functions to **certain instance types**. For instance, if this is included in an `update_model` function definition:
+
+```yaml
+#update_model.yml
+  [..]
+   constraints:
+     - "node.labels.instance_type == gpu"
+```
+
+Then you can write code which is **automatically cost-optimized** when it executes:
+
+```python
+# Runs on expensive GPU instance
+from fashion import update_model
+
+# Runs on cheap CPU instance
+from fashion import send_result_email
+
+result = update_model(input)
+send_email(result)
+# Email sent!
 ```
 
 ### Other OpenFaaS utilities
